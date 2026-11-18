@@ -1,0 +1,19 @@
+{
+  "name": "valma-sitio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio y formularios de VALMA",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^10.6.0"
+  }
+}

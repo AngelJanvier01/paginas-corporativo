@@ -1,6 +1,6 @@
 # Páginas Corporativo
 
-Este repositorio reúne cinco sitios independientes. La página de VALMA ya existe; los demás directorios están preparados para incorporar sus respectivos sitios cuando se disponga de sus archivos y contenidos.
+Este repositorio reúne cinco sitios independientes. VALMA y BiotecZac cuentan con sus propios sitios; los demás directorios están preparados para incorporar sus respectivos archivos y contenidos. BiotecZac incluye líneas de productos, venta y renta, cobertura nacional y contacto; su catálogo detallado permanece en construcción para una futura integración con Odoo.
 
 ```text
 sitios/
@@ -24,7 +24,7 @@ Desde la raíz del repositorio:
 python -m http.server 8000 --directory sitios/valma
 ```
 
-Abre `http://localhost:8000/`. Las demás carpetas no son sitios funcionales hasta agregar sus archivos.
+Abre `http://localhost:8000/`. Para probar BiotecZac de forma independiente, utiliza `python -m http.server 8001 --directory sitios/bioteczac` y abre `http://localhost:8001/`. Los otros tres sitios todavía están pendientes.
 
 ## Herramientas y contexto
 

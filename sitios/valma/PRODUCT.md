@@ -24,8 +24,8 @@ VALMA destaca la proveeduría de insumos médicos, su amplio inventario y su cob
 - La actividad principal indicada por el propietario es la proveeduría de insumos médicos a instituciones, especialmente públicas. Los servicios de ingeniería y mantenimiento son complementarios.
 - La tienda indica que está en mantenimiento y dirige los pedidos al equipo comercial.
 - El dominio previsto es `ingenieriavalma.com` y el correo para solicitudes es `direccion@ingenieriavalma.com`.
-- El formulario de contacto prepara un mensaje en la aplicación de correo del visitante; no realiza envíos automáticos. La página de empleados invita a consultar el acceso por correo y no solicita credenciales.
-- La bolsa de trabajo permite consultar vacantes por correo dirigido a `direccion@ingenieriavalma.com`; el candidato puede adjuntar su CV y debe enviar el mensaje.
+- El formulario de contacto envía las consultas a `direccion@ingenieriavalma.com` mediante el servicio del sitio. La página de empleados invita a consultar el acceso por correo y no solicita credenciales.
+- La bolsa de trabajo permite enviar una postulación y adjuntar opcionalmente un CV en PDF de hasta 5 MB a `direccion@ingenieriavalma.com`.
 - El propietario no indicó elementos del sitio actual que deban conservarse obligatoriamente. Los datos y afirmaciones existentes deben verificarse antes de tratarlos como hechos confirmados.
 
 ## Brand Commitments
@@ -36,7 +36,7 @@ El nombre utilizado es VALMA. El repositorio incluye el logotipo en `logovalma.j
 
 - `index.html`: presentación corporativa y descripción actual de servicios.
 - `tienda.html`: estado actual de la tienda.
-- `bolsa.html`: consulta de vacantes por correo.
+- `bolsa.html`: formulario de postulación.
 - `empleados.html`: consulta por correo sobre el acceso para empleados.
 - No se ha proporcionado evidencia que sustente la comparación de inventario con otras empresas.
 

@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T22:58:12.140Z",
+  "title": "Design System: BiotecZac",
+  "extensions": {
+    "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Noche",
+        "tonalRamp": [
+          "oklch(15.0% 0.0227 268.7)",
+          "oklch(26.4% 0.0335 268.7)",
+          "oklch(37.9% 0.0402 268.7)",
+          "oklch(49.3% 0.0427 268.7)",
+          "oklch(60.7% 0.0408 268.7)",
+          "oklch(72.1% 0.0346 268.7)",
+          "oklch(83.6% 0.0243 268.7)",
+          "oklch(95.0% 0.0097 268.7)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Azul intenso",
+        "tonalRamp": [
+          "oklch(15.0% 0.1359 263.6)",
+          "oklch(26.4% 0.2005 263.6)",
+          "oklch(37.9% 0.2408 263.6)",
+          "oklch(49.3% 0.2556 263.6)",
+          "oklch(60.7% 0.2441 263.6)",
+          "oklch(72.1% 0.2069 263.6)",
+          "oklch(83.6% 0.1453 263.6)",
+          "oklch(95.0% 0.0580 263.6)"
+        ]
+      },
+      "blue-hover": {
+        "role": "primary",
+        "displayName": "Azul de interacción",
+        "tonalRamp": [
+          "oklch(15.0% 0.1241 263.5)",
+          "oklch(26.4% 0.1830 263.5)",
+          "oklch(37.9% 0.2198 263.5)",
+          "oklch(49.3% 0.2333 263.5)",
+          "oklch(60.7% 0.2228 263.5)",
+          "oklch(72.1% 0.1889 263.5)",
+          "oklch(83.6% 0.1326 263.5)",
+          "oklch(95.0% 0.0529 263.5)"
+        ]
+      },
+      "cyan": {
+        "role": "secondary",
+        "displayName": "Cian luminoso",
+        "tonalRamp": [
+          "oklch(15.0% 0.0691 208.8)",
+          "oklch(26.4% 0.1019 208.8)",
+          "oklch(37.9% 0.1224 208.8)",
+          "oklch(49.3% 0.1299 208.8)",
+          "oklch(60.7% 0.1240 208.8)",
+          "oklch(72.1% 0.1051 208.8)",
+          "oklch(83.6% 0.0738 208.8)",
+          "oklch(95.0% 0.0295 208.8)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "tonalRamp": [
+          "oklch(15.0% 0.0262 265.5)",
+          "oklch(26.4% 0.0386 265.5)",
+          "oklch(37.9% 0.0464 265.5)",
+          "oklch(49.3% 0.0492 265.5)",
+          "oklch(60.7% 0.0470 265.5)",
+          "oklch(72.1% 0.0398 265.5)",
+          "oklch(83.6% 0.0280 265.5)",
+          "oklch(95.0% 0.0112 265.5)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Texto secundario",
+        "tonalRamp": [
+          "oklch(15.0% 0.0234 261.9)",
+          "oklch(26.4% 0.0345 261.9)",
+          "oklch(37.9% 0.0414 261.9)",
+          "oklch(49.3% 0.0439 261.9)",
+          "oklch(60.7% 0.0420 261.9)",
+          "oklch(72.1% 0.0356 261.9)",
+          "oklch(83.6% 0.0250 261.9)",
+          "oklch(95.0% 0.0100 261.9)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "tonalRamp": [
+          "oklch(15.0% 0.0000 89.9)",
+          "oklch(26.4% 0.0000 89.9)",
+          "oklch(37.9% 0.0000 89.9)",
+          "oklch(49.3% 0.0000 89.9)",
+          "oklch(60.7% 0.0000 89.9)",
+          "oklch(72.1% 0.0000 89.9)",
+          "oklch(83.6% 0.0000 89.9)",
+          "oklch(95.0% 0.0000 89.9)"
+        ]
+      },
+      "ice": {
+        "role": "neutral",
+        "displayName": "Hielo",
+        "tonalRamp": [
+          "oklch(15.0% 0.0046 264.5)",
+          "oklch(26.4% 0.0068 264.5)",
+          "oklch(37.9% 0.0081 264.5)",
+          "oklch(49.3% 0.0086 264.5)",
+          "oklch(60.7% 0.0082 264.5)",
+          "oklch(72.1% 0.0070 264.5)",
+          "oklch(83.6% 0.0049 264.5)",
+          "oklch(95.0% 0.0020 264.5)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Divisor claro",
+        "tonalRamp": [
+          "oklch(15.0% 0.0111 264.5)",
+          "oklch(26.4% 0.0163 264.5)",
+          "oklch(37.9% 0.0196 264.5)",
+          "oklch(49.3% 0.0208 264.5)",
+          "oklch(60.7% 0.0199 264.5)",
+          "oklch(72.1% 0.0168 264.5)",
+          "oklch(83.6% 0.0118 264.5)",
+          "oklch(95.0% 0.0047 264.5)"
+        ]
+      },
+      "input-line": {
+        "role": "neutral",
+        "displayName": "Borde de campo",
+        "tonalRamp": [
+          "oklch(15.0% 0.0189 262.6)",
+          "oklch(26.4% 0.0278 262.6)",
+          "oklch(37.9% 0.0334 262.6)",
+          "oklch(49.3% 0.0355 262.6)",
+          "oklch(60.7% 0.0339 262.6)",
+          "oklch(72.1% 0.0287 262.6)",
+          "oklch(83.6% 0.0202 262.6)",
+          "oklch(95.0% 0.0080 262.6)"
+        ]
+      },
+      "on-dark-body": {
+        "role": "neutral",
+        "displayName": "Lectura sobre noche",
+        "tonalRamp": [
+          "oklch(15.0% 0.0197 263.6)",
+          "oklch(26.4% 0.0291 263.6)",
+          "oklch(37.9% 0.0350 263.6)",
+          "oklch(49.3% 0.0371 263.6)",
+          "oklch(60.7% 0.0354 263.6)",
+          "oklch(72.1% 0.0300 263.6)",
+          "oklch(83.6% 0.0211 263.6)",
+          "oklch(95.0% 0.0084 263.6)"
+        ]
+      },
+      "on-blue-body": {
+        "role": "neutral",
+        "displayName": "Lectura sobre azul",
+        "tonalRamp": [
+          "oklch(15.0% 0.0133 271.1)",
+          "oklch(26.4% 0.0197 271.1)",
+          "oklch(37.9% 0.0237 271.1)",
+          "oklch(49.3% 0.0251 271.1)",
+          "oklch(60.7% 0.0240 271.1)",
+          "oklch(72.1% 0.0203 271.1)",
+          "oklch(83.6% 0.0143 271.1)",
+          "oklch(95.0% 0.0057 271.1)"
+        ]
+      },
+      "night-line": {
+        "role": "neutral",
+        "displayName": "Divisor nocturno",
+        "tonalRamp": [
+          "oklch(15.0% 0.0281 265.4)",
+          "oklch(26.4% 0.0414 265.4)",
+          "oklch(37.9% 0.0498 265.4)",
+          "oklch(49.3% 0.0528 265.4)",
+          "oklch(60.7% 0.0505 265.4)",
+          "oklch(72.1% 0.0428 265.4)",
+          "oklch(83.6% 0.0300 265.4)",
+          "oklch(95.0% 0.0120 265.4)"
+        ]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Error",
+        "tonalRamp": [
+          "oklch(15.0% 0.0881 18.4)",
+          "oklch(26.4% 0.1300 18.4)",
+          "oklch(37.9% 0.1561 18.4)",
+          "oklch(49.3% 0.1657 18.4)",
+          "oklch(60.7% 0.1582 18.4)",
+          "oklch(72.1% 0.1341 18.4)",
+          "oklch(83.6% 0.0942 18.4)",
+          "oklch(95.0% 0.0376 18.4)"
+        ]
+      },
+      "error-surface": {
+        "role": "semantic",
+        "displayName": "Fondo de error",
+        "tonalRamp": [
+          "oklch(15.0% 0.0035 5.6)",
+          "oklch(26.4% 0.0051 5.6)",
+          "oklch(37.9% 0.0061 5.6)",
+          "oklch(49.3% 0.0065 5.6)",
+          "oklch(60.7% 0.0062 5.6)",
+          "oklch(72.1% 0.0053 5.6)",
+          "oklch(83.6% 0.0037 5.6)",
+          "oklch(95.0% 0.0015 5.6)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Titular principal",
+        "purpose": "Titulares de portada y catálogo, con ajustes según la superficie."
+      },
+      "headline": {
+        "displayName": "Título de sección",
+        "purpose": "Encabezados de sección en mayúsculas."
+      },
+      "title": {
+        "displayName": "Título de familia",
+        "purpose": "Familias de productos y subtítulos de consulta."
+      },
+      "body": {
+        "displayName": "Lectura",
+        "purpose": "Párrafos y explicaciones."
+      },
+      "label": {
+        "displayName": "Etiqueta de campo",
+        "purpose": "Etiquetas persistentes del formulario."
+      },
+      "action": {
+        "displayName": "Acción",
+        "purpose": "Botones azul y blanco."
+      },
+      "navigation": {
+        "displayName": "Navegación",
+        "purpose": "Enlaces del riel y menú adaptable."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "control-feedback",
+        "value": "0.18s ease-out",
+        "purpose": "Cambio de fondo y color en botones, opacidad de flechas de navegación."
+      },
+      {
+        "name": "accordion-toggle",
+        "value": "transform 0.2s ease-out",
+        "purpose": "Girar 45 grados la suma cuando el acordeón está abierto."
+      },
+      {
+        "name": "scroll",
+        "value": "smooth",
+        "purpose": "Desplazamiento entre anclas."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "Desactivar transiciones y animaciones; scroll-behavior pasa a auto."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1150px"
+      },
+      {
+        "name": "compact-desktop-min",
+        "value": "901px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción azul para cotización o revisión del mensaje sobre superficies claras.",
+      "html": "<button class=\"ds-button ds-focus\" type=\"button\">Revisar mi mensaje <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;justify-content:center;align-items:center;gap:22px;min-height:50px;padding:13px 22px;border:0;border-radius:var(--radius,6px);background:var(--blue,#1557ff);color:#fff;font:650 16px/1.4 var(--body,\"Instrument Sans\",sans-serif);text-align:center;text-decoration:none;cursor:pointer;transition:background-color .18s ease-out,color .18s ease-out}.ds-button:hover{background:var(--blue-hover,#0641d7)}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Botón blanco",
+      "kind": "button",
+      "refersTo": "button-white",
+      "description": "Acción clara sobre una superficie de noche o azul.",
+      "html": "<div class=\"ds-dark-surface\"><a class=\"ds-button ds-white ds-focus\" href=\"#contacto\">Cotizar por WhatsApp <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a></div>",
+      "css": ".ds-button{display:inline-flex;justify-content:center;align-items:center;gap:22px;min-height:50px;padding:13px 22px;border:0;border-radius:var(--radius,6px);background:var(--blue,#1557ff);color:#fff;font:650 16px/1.4 var(--body,\"Instrument Sans\",sans-serif);text-align:center;text-decoration:none;cursor:pointer;transition:background-color .18s ease-out,color .18s ease-out}.ds-button:hover{background:var(--blue-hover,#0641d7)}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-dark-surface{padding:25px;background:var(--blue,#1557ff)}.ds-white{background:#fff;color:var(--night,#080e22)}.ds-white:hover{background:var(--cyan,#33d7ed);color:var(--night,#080e22)}.ds-dark-surface .ds-focus:focus-visible{outline-color:var(--cyan,#33d7ed)}"
+    },
+    {
+      "name": "Enlace de texto",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Acción secundaria abierta, con flecha y subrayado en hover.",
+      "html": "<a class=\"ds-text-link ds-focus\" href=\"#contacto\">Consultar insumos <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:44px;padding:6px 0;border:0;background:none;color:var(--blue,#1557ff);font:600 17px/1.4 var(--body,\"Instrument Sans\",sans-serif);text-decoration:none;text-align:left;cursor:pointer}.ds-text-link:hover{text-decoration:underline}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Campo de consulta",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo con etiqueta persistente, foco visible y validación junto al control.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-name\">Nombre *</label><input class=\"ds-input ds-focus\" id=\"ds-name\" name=\"name\" autocomplete=\"name\" maxlength=\"100\" required><span class=\"ds-error\" id=\"ds-name-error\"></span></div>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;margin-bottom:21px;min-width:0;font-family:var(--body,\"Instrument Sans\",sans-serif);color:var(--ink,#101a32)}.ds-label{font-size:14px;font-weight:600;line-height:1.4}.ds-input{width:100%;min-width:0;padding:12px;border:1px solid var(--input-line,#8995ab);border-radius:4px;background:#fff;color:var(--ink,#101a32);font:400 16px/1.5 var(--body,\"Instrument Sans\",sans-serif);caret-color:var(--blue,#1557ff)}.ds-input[aria-invalid=\"true\"]{border-color:var(--error,#a62337);background:#fff9fa}.ds-error{font-size:13px;line-height:1.4;color:var(--error,#a62337)}.ds-error:empty{display:none}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}"
+    },
+    {
+      "name": "Navegación lateral",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Enlaces verticales con divisores, estado actual y flecha de respuesta.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a class=\"ds-nav-link ds-focus\" href=\"#productos\">Nuestras líneas <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a><a class=\"ds-nav-link ds-focus\" href=\"#venta-renta\">Venta y renta <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a><a class=\"ds-nav-link ds-focus\" href=\"catalogo.html\" aria-current=\"page\">Catálogo <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a></nav>",
+      "css": ".ds-nav{display:flex;flex-direction:column;width:154px;background:var(--paper,#fff);color:var(--ink,#101a32);font:600 15px/1.6 var(--body,\"Instrument Sans\",sans-serif)}.ds-nav-link{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:18px 0;border-bottom:1px solid #e5e9f1;color:inherit;text-decoration:none}.ds-nav-link .ds-icon{width:16px;height:16px;opacity:0;transition:opacity .18s ease-out}.ds-nav-link:hover,.ds-nav-link[aria-current=\"page\"]{color:var(--blue,#1557ff)}.ds-nav-link:hover .ds-icon,.ds-nav-link:focus-visible .ds-icon,.ds-nav-link[aria-current=\"page\"] .ds-icon{opacity:1}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-nav-link .ds-icon{transition:none}}"
+    },
+    {
+      "name": "Acordeón de productos",
+      "kind": "custom",
+      "refersTo": "product-row",
+      "description": "Fila nativa que abre una familia de productos con estado azul y suma giratoria.",
+      "html": "<details class=\"ds-product-row\"><summary class=\"ds-focus\"><h3>Insumos para la salud</h3><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></summary><div class=\"ds-product-detail\"><p>Materiales para la atención, la exploración y el cuidado de pacientes en cada jornada.</p><a class=\"ds-text-link ds-focus\" href=\"#contacto\">Consultar insumos <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a></div></details>",
+      "css": ".ds-product-row{border-top:1px solid var(--line,#cbd2e0);border-bottom:1px solid var(--line,#cbd2e0);color:var(--ink,#101a32);font:400 17px/1.6 var(--body,\"Instrument Sans\",sans-serif)}.ds-product-row summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 0;cursor:pointer;list-style:none}.ds-product-row summary::-webkit-details-marker{display:none}.ds-product-row h3{margin:0;font:650 1.5rem/1.25 var(--body,\"Instrument Sans\",sans-serif);letter-spacing:-.02em}.ds-product-row summary:hover h3,.ds-product-row[open] h3{color:var(--blue,#1557ff)}.ds-product-row summary>.ds-icon{width:28px;height:28px;color:var(--blue,#1557ff);transition:transform .2s ease-out}.ds-product-row[open] summary>.ds-icon{transform:rotate(45deg)}.ds-product-detail{padding:0 0 30px}.ds-product-detail p{margin:0 0 14px;max-width:62ch;color:var(--muted,#526079)}.ds-text-link{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:44px;padding:6px 0;border:0;background:none;color:var(--blue,#1557ff);font:600 17px/1.4 var(--body,\"Instrument Sans\",sans-serif);text-decoration:none;text-align:left;cursor:pointer}.ds-text-link:hover{text-decoration:underline}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}@media(max-width:600px){.ds-product-row summary{padding:22px 0;gap:15px}.ds-product-row h3{font-size:21px;max-width:24ch}.ds-product-row summary>.ds-icon{width:23px;height:23px}}@media(prefers-reduced-motion:reduce){.ds-product-row summary>.ds-icon{transition:none}}"
+    },
+    {
+      "name": "Borrador del mensaje",
+      "kind": "custom",
+      "refersTo": "message-preview",
+      "description": "Texto revisable antes de que el visitante decida enviarlo externamente.",
+      "html": "<pre class=\"ds-message\">Hola, BiotecZac. Me gustaría solicitar una cotización.\n\nLo que necesito:\nEquipo para mi consultorio.</pre>",
+      "css": ".ds-message{padding:20px;border:1px solid var(--line,#cbd2e0);border-radius:var(--radius,6px);background:#fff;white-space:pre-wrap;overflow-wrap:anywhere;font:400 15px/1.65 var(--body,\"Instrument Sans\",sans-serif);color:var(--ink,#101a32);margin:0 0 24px}"
+    },
+    {
+      "name": "Canal de contacto",
+      "kind": "custom",
+      "refersTo": "contact-channel",
+      "description": "Fila de contacto con etiqueta secundaria, dato destacado e icono direccional.",
+      "html": "<a class=\"ds-channel ds-focus\" href=\"mailto:coord.zac@bioteczac.com\"><span>Correo comercial</span><strong>coord.zac@bioteczac.com</strong><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-channel{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:18px 28px 18px 0;border-top:1px solid var(--line,#cbd2e0);border-bottom:1px solid var(--line,#cbd2e0);color:var(--ink,#101a32);font:400 17px/1.6 var(--body,\"Instrument Sans\",sans-serif);text-decoration:none}.ds-channel span{font-size:14px;color:var(--muted,#526079)}.ds-channel strong{font-size:clamp(16px,1.5vw,20px);font-weight:600;overflow-wrap:anywhere}.ds-channel .ds-icon{position:absolute;right:0;top:50%;color:var(--blue,#1557ff)}.ds-channel:hover strong{text-decoration:underline;text-underline-offset:4px}.ds-icon{width:22px;height:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.ds-focus:focus-visible{outline:3px solid var(--blue,#1557ff);outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Pabellón de tecnología biomédica",
+    "overview": "BiotecZac se presenta como un pabellón de tecnología biomédica: fondos de noche, azul intenso, acentos cian y titulares condensados de gran escala. La composición es atrevida, con superficies amplias y una navegación blanca que conserva una referencia estable. La identidad corresponde a Servicios y Equipos en Biotecnología de Zacatecas.\n\nLa fotografía panorámica de equipo convive con contenido abierto, divisores y controles compactos. Instrument Sans sostiene la lectura y el trabajo de consulta; Barlow Condensed da presencia a los titulares. Este sistema describe la implementación terminada en `index.html`, `catalogo.html`, `bioteczac.css` y `bioteczac.js`; las decisiones propias de esas páginas permanecen en `.impeccable/surfaces/index-html.md`.",
+    "keyCharacteristics": [
+      "Azul intenso y fondo de noche como superficies de marca; cian para énfasis sobre oscuro.",
+      "Barlow Condensed en titulares e Instrument Sans en lectura y controles.",
+      "Navegación lateral blanca en escritorio y cabecera compacta en tablet y celular.",
+      "Fotografía panorámica, filas abiertas y acordeones nativos con divisores.",
+      "Logotipo suministrado en `assets/logo-bioteczac-transparente.png`, sin deformación; original conservado."
+    ],
+    "rules": [
+      {
+        "name": "The Acción con contraste Rule",
+        "body": "Usar azul con texto blanco sobre superficies claras; usar el botón blanco sobre noche o azul. En los fondos oscuros y azules, el foco visible es cian.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dos voces Rule",
+        "body": "Reservar Barlow Condensed en mayúsculas para titulares y grandes opciones de compra o renta. Mantener Instrument Sans en lectura, navegación, formularios y acciones.",
+        "section": "typography"
+      },
+      {
+        "name": "The Profundidad tonal Rule",
+        "body": "Separar las superficies mediante color, espacio y divisores. La interfaz implementada no utiliza sombras.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** conservar la proporción y transparencia del logotipo suministrado.",
+      "**Do** usar los tokens propios de BiotecZac y las dos familias locales.",
+      "**Do** mantener foco visible, etiquetas persistentes y errores junto al campo.",
+      "**Do** respetar movimiento reducido y los acordeones nativos.",
+      "**Do** identificar la fotografía de equipo como ilustrativa."
+    ],
+    "donts": [
+      "**Don't** reutilizar la identidad visual, logotipos o datos de otras empresas.",
+      "**Don't** estirar el logotipo ni sustituirlo por una marca generada.",
+      "**Don't** presentar el catálogo pendiente, la fotografía ilustrativa o el borrador de consulta como inventario o envío confirmado."
+    ]
+  }
+}

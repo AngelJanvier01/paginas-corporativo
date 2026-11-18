@@ -324,6 +324,16 @@ a{text-underline-offset:.2em}
 .page-jobs .careers-contact h2{font-size:1.4rem;line-height:1.25;margin:0 0 14px}
 .page-jobs .careers-contact p{color:#405f66;margin:0 0 18px}
 .page-jobs .careers-contact a{color:#005e58;font-weight:700;overflow-wrap:anywhere}
+.jobs-form{display:grid;gap:16px}
+.jobs-form label{display:grid;gap:6px;color:#0a3747;font-weight:700}
+.jobs-form label span{font-weight:400;font-size:.9rem;color:#405f66}
+.jobs-form input,.jobs-form textarea{width:100%;min-width:0;padding:11px 12px;border:1px solid #a8c7c3;border-radius:8px;background:#fff;color:#0a3747;font:inherit}
+.jobs-form input[type=file]{font-size:.9rem}
+.jobs-form p{margin:0}
+.jobs-form .cta{justify-self:start}
+.valma-form .form-trap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
+.valma-form button:disabled{opacity:.65;cursor:wait}
+.valma-form .form-status{margin:12px 0 0;color:#0a3747;font-weight:700;overflow-wrap:anywhere}
 .page-jobs footer{padding:24px 22px}
 .page-staff main,.page-shop main{align-items:flex-start!important;padding-top:clamp(48px,8vw,100px)}
 .page-staff .card .helper{margin:18px 0 0;overflow-wrap:anywhere}

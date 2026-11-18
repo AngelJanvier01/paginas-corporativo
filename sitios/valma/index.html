@@ -499,6 +499,7 @@
     </style>
     <link rel="stylesheet" href="valma.css">
     <script src="productos-carrusel.js" defer></script>
+    <script src="formularios.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -526,7 +527,7 @@
         <div class="wrap">
             <div class="hero-copy">
                 <h1>Insumos y equipo médico para cuidar la salud</h1>
-                <p>Distribuimos material de curación, medicamentos, instrumental, equipo y mobiliario para instituciones de salud en todo México.</p>
+                <p>En Ingeniería en Equipos Médicos VALMA distribuimos material de curación, medicamentos, instrumental, equipo y mobiliario para instituciones de salud en todo México.</p>
                 <div class="buttons">
                     <a href="#contacto" class="cta">Solicitar información <span aria-hidden="true">↗</span></a>
                     <a href="#servicios" class="hero-contact">Ver productos y servicios <span aria-hidden="true">↓</span></a>
@@ -794,21 +795,22 @@
                 <div class="card reveal">
                     <h3>Escríbenos</h3>
                     <p class="form-note">Usaremos tu nombre, correo y mensaje para responderte. Evita compartir datos sensibles. Conoce tus derechos y cómo limitar el uso de tus datos en el <a href="aviso-privacidad.html">aviso de privacidad</a>.</p>
-                    <form id="contact-form" class="muted">
-                        <label>Nombre<br><input name="nombre" required type="text" placeholder="Tu nombre"
+                    <form id="contact-form" class="muted valma-form" action="/api/contacto" method="post" enctype="multipart/form-data">
+                        <label>Nombre<br><input name="nombre" required maxlength="120" autocomplete="name" type="text" placeholder="Tu nombre"
                                 style="width:100%;padding:12px;border:1px solid #d7e3ea;border-radius:12px"></label><br><br>
-                        <label>Correo<br><input name="correo" required type="email" placeholder="nombre@dominio.com"
+                        <label>Correo<br><input name="correo" required maxlength="254" autocomplete="email" type="email" placeholder="nombre@dominio.com"
                                 style="width:100%;padding:12px;border:1px solid #d7e3ea;border-radius:12px"></label><br><br>
-                        <label>Mensaje<br><textarea name="mensaje" required rows="5" placeholder="Cuéntanos lo que necesitas"
+                        <label>Mensaje<br><textarea name="mensaje" required maxlength="4000" rows="5" placeholder="Cuéntanos lo que necesitas"
                                 style="width:100%;padding:12px;border:1px solid #d7e3ea;border-radius:12px"></textarea></label><br><br>
-                        <button class="cta" type="submit">Preparar correo</button>
+                        <label class="form-trap" aria-hidden="true">Sitio web<input name="sitio" tabindex="-1" autocomplete="off"></label>
+                        <button class="cta" type="submit">Enviar mensaje</button>
+                        <p class="form-status" role="status" aria-live="polite"></p>
                     </form>
                 </div>
                 <div class="card reveal">
                     <h3>Datos de contacto</h3>
                     <p class="muted">Monterrey, Nuevo León · México</p>
-                    <p class="muted"><strong>Correo:</strong> <a href="mailto:direccion@ingenieriavalma.com">direccion@ingenieriavalma.com</a>
-                        <em></em><br><strong>Teléfono:</strong> <a href="tel:+524921627863">+52 (492) 162 7863</a> <em></em></p>
+                    <p class="muted"><strong>Correo:</strong> <a href="mailto:direccion@ingenieriavalma.com">direccion@ingenieriavalma.com</a></p>
                     <div class="divider"></div>
                     <h3>Aviso de privacidad</h3>
                     <p class="muted">Consulta nuestro <a href="aviso-privacidad.html">aviso de privacidad</a>.</p>
@@ -878,13 +880,6 @@
         clientsTrack.addEventListener('scroll', updateClientsControls, { passive: true });
         window.addEventListener('resize', updateClientsControls);
         updateClientsControls();
-
-        document.getElementById('contact-form').addEventListener('submit', event => {
-            event.preventDefault();
-            const fields = new FormData(event.currentTarget);
-            const body = `Nombre: ${fields.get('nombre')}\nCorreo: ${fields.get('correo')}\n\nMensaje:\n${fields.get('mensaje')}`;
-            window.location.href = `mailto:direccion@ingenieriavalma.com?subject=${encodeURIComponent('Solicitud desde el sitio web de VALMA')}&body=${encodeURIComponent(body)}`;
-        });
 
         const coverageButtons = [...document.querySelectorAll('.coverage-place')];
         const coverageMarkers = [...document.querySelectorAll('.coverage-marker')];

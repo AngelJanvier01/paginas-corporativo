@@ -1,0 +1,17 @@
+{
+  "created": "2026-11-18",
+  "tool": "image_gen.imagegen",
+  "revision": "Identidad tecnológica",
+  "assets": {
+    "logo-bioteczac-transparente.png": {
+      "source": "../LOGO BIOTEC.png",
+      "treatment": "Se eliminó el fondo mediante edición generativa, conservando visualmente la marca. PNG RGBA con transparencia; versión web optimizada a 508 × 378. El original permanece intacto.",
+      "prompt": "Edit the supplied BiotecZac logo ONLY to remove the light gray/off-white rectangular background and make it genuinely transparent. Preserve the original logo faithfully: the blue/cyan zigzag line with round node, the exact black 'Biotec' plus cyan 'Zac' wordmark 'BiotecZac', and the exact gray subtitle 'Biotecnología Zacatecas'. Do not redesign, change the lettering, rearrange, recolor, add text, invent marks, add shadows or glows. Clean antialiased edges, no white or gray matte fringe, transparent gaps around and between letters and inside the zigzag. Deliver a crisp flat PNG cutout with real alpha transparency and modest transparent margin, keeping the original proportions. The ONLY requested visual change is background removal."
+    },
+    "tecnologia-medica.webp": {
+      "usage": "Imagen ilustrativa de equipo genérico, no fotografía de instalaciones ni inventario de BiotecZac.",
+      "format": "2172 × 724, WebP calidad 86",
+      "prompt": "Create a photorealistic wide panoramic editorial photograph for a premium medical equipment distributor website. Landscape aspect ratio 3:1, 1536x512 or similarly wide. A modern unbranded white ultrasound cart on the left, compact vital signs monitor center, stainless steel tray with a few surgical instruments on the right, neatly folded white medical gauze at far right. All objects complete and arranged across a continuous sleek dark navy showroom stage, midnight navy #080e22 seamless studio background, gentle cool electric blue edge illumination and realistic soft light on white surfaces. Sophisticated clinical technology exhibition, realistic proportions, trustworthy catalog-grade materials, cinematic but clean, subtle natural reflections. Equipment fills middle and lower portions; moderate navy negative space above. No people, no words, no logos, no UI, no badges, no decorative graphic overlays, no visible company brand. The photograph is illustrative, not of an actual facility. Do not include a hospital bed."
+    }
+  }
+}

@@ -7,7 +7,7 @@
     <title>VALMA | Bolsa de trabajo</title>
     <link rel="icon" href="logovalma.jpg" type="image/jpeg">
     <link rel="canonical" href="https://ingenieriavalma.com/bolsa.html">
-    <meta name="description" content="Consulta por correo las vacantes disponibles en VALMA.">
+    <meta name="description" content="Envía tu postulación para trabajar en VALMA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -238,6 +238,7 @@
         }
     </style>
     <link rel="stylesheet" href="valma.css">
+    <script src="formularios.js" defer></script>
 </head>
 
 <body class="page-jobs">
@@ -252,14 +253,23 @@
         <div class="wrap careers-layout">
             <div class="careers-intro">
                 <h1>Bolsa de trabajo</h1>
-                <p>¿Te gustaría trabajar con nosotros? Escríbenos para preguntar por las vacantes disponibles.</p>
-                <a class="cta" href="mailto:direccion@ingenieriavalma.com?subject=Consulta%20de%20vacantes">Consultar vacantes por correo</a>
+                <p>¿Te gustaría trabajar con nosotros? Cuéntanos qué buscas y comparte tu currículum.</p>
             </div>
             <div class="careers-contact">
                 <h2>Cuéntanos sobre ti</h2>
-                <p>Dinos qué tipo de trabajo buscas y adjunta tu currículum al correo.</p>
-                <a href="mailto:direccion@ingenieriavalma.com?subject=Consulta%20de%20vacantes">direccion@ingenieriavalma.com</a>
-                <p>Consulta nuestro <a href="aviso-privacidad.html">aviso de privacidad</a> antes de compartir tus datos.</p>
+                <p>Completa tus datos y, si lo deseas, adjunta tu currículum en PDF.</p>
+                <form class="valma-form jobs-form" action="/api/postulacion" method="post" enctype="multipart/form-data">
+                    <label>Nombre<input name="nombre" required maxlength="120" autocomplete="name" type="text"></label>
+                    <label>Correo<input name="correo" required maxlength="254" autocomplete="email" type="email"></label>
+                    <label>¿Qué tipo de trabajo buscas?<input name="area" required maxlength="160" type="text"></label>
+                    <label>Cuéntanos sobre ti <span>(opcional)</span><textarea name="mensaje" maxlength="4000" rows="4"></textarea></label>
+                    <label>Currículum en PDF <span>(opcional, máximo 5 MB)</span><input name="cv" type="file" accept="application/pdf,.pdf" aria-describedby="cv-help"></label>
+                    <p id="cv-help" class="form-note">Evita incluir datos personales sensibles.</p>
+                    <label class="form-trap" aria-hidden="true">Sitio web<input name="sitio" tabindex="-1" autocomplete="off"></label>
+                    <p class="form-note">Consulta nuestro <a href="aviso-privacidad.html">aviso de privacidad</a> antes de compartir tus datos.</p>
+                    <button class="cta" type="submit">Enviar postulación</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </div>
     </main>
