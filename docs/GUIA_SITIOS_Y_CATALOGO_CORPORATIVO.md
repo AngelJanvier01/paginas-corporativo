@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Guiar la creación y evolución de tres sitios de empresas del corporativo. Cada empresa tendrá sus propios contenidos, imagen, dominio y oferta; la intranet proporcionará las funciones y datos compartidos que cada sitio tenga autorizados, como vacantes y un catálogo de artículos para sus tiendas.
+Guiar la creación y evolución de los sitios de las cuatro empresas y del Corporativo BV. Cada sitio tendrá sus propios contenidos, imagen, dominio y oferta; la intranet podrá proporcionar las funciones y datos compartidos que cada uno tenga autorizados, como vacantes y un catálogo para las tiendas que correspondan.
 
 **Este documento no representa funcionalidades ya implementadas.** Describe una propuesta para definir y construir. Se prevé extraer inicialmente el catálogo de SICAR y cambiar posteriormente a Odoo; las reglas comerciales, alcances de las tiendas, conexiones y fechas siguen pendientes de definición.
 
@@ -14,8 +14,8 @@ La guía complementa [Estándar corporativo de vacantes y postulaciones](ESTANDA
 
 - La intranet corporativa cuenta en su repositorio local con una arquitectura modular Node.js/Express, empresas y permisos. Hay que verificar la instalación real y su configuración antes de intervenir producción.
 - El dominio previsto para VALMA es `https://ingenieriavalma.com` y el correo de contacto indicado es `direccion@ingenieriavalma.com`.
-- VALMA tiene hoy una página estática, una tienda en mantenimiento y vacantes de ejemplo. Los formularios de contacto y postulación abren la aplicación de correo del visitante; aún no hay API ni tienda integrada.
-- Las otras dos empresas, sus dominios, repositorios, responsables, contenidos y reglas comerciales están pendientes de identificar.
+- VALMA tiene una página estática, una tienda en mantenimiento y una bolsa de trabajo que invita a consultar vacantes por correo. El formulario de contacto prepara un correo en la aplicación del visitante; aún no hay API ni tienda integrada.
+- Los cinco sitios previstos son VALMA, BiotecZac, Pro Omnimedic, Kilatek y Corporativo BV. Los dominios, responsables, contenidos y reglas comerciales de los demás sitios están pendientes de confirmar. Debe definirse qué funciones compartidas necesita cada uno.
 - El responsable indicó que la fuente inicial del catálogo será SICAR, mediante un servicio de extracción, y que posteriormente será Odoo. No se ha confirmado la fecha del cambio ni el mecanismo exacto de acceso a ninguno de los dos sistemas.
 - La documentación local de la intranet describe una herramienta de migración SICAR que extrae datos en modo lectura y permite actualizar un catálogo local desde archivo. Evaluar qué partes pueden reutilizarse; esa herramienta no constituye todavía una sincronización automática para las tiendas.
 
@@ -29,7 +29,7 @@ La guía complementa [Estándar corporativo de vacantes y postulaciones](ESTANDA
 | Qué artículos y vacantes mostrar, y su presentación aprobada. | Reglas configurables de publicación, notificación y consulta. |
 | Dominios, información legal y responsables de aprobación. | Infraestructura y monitoreo, sujetos al diseño final. |
 
-No asumir que las tres empresas ofrecen los mismos productos, atienden a los mismos clientes ni comparten precios, inventario, correo, razón social o condiciones. No copiar afirmaciones, fotos, certificados o testimonios de una empresa a otra sin autorización y evidencia.
+No asumir que las empresas ofrecen los mismos productos, atienden a los mismos clientes ni comparten precios, inventario, correo, razón social o condiciones. No copiar afirmaciones, fotos, certificados o testimonios de una empresa a otra sin autorización y evidencia.
 
 ## 4. Arquitectura propuesta
 
@@ -42,11 +42,15 @@ flowchart LR
     Central --> API["API pública limitada y versionada"]
     Jobs --> API
     API --> V["Sitio VALMA"]
-    API --> B["Sitio empresa 2"]
-    API --> C["Sitio empresa 3"]
+    API --> B["BiotecZac"]
+    API --> C["Pro Omnimedic"]
+    API --> K["Kilatek"]
+    API --> BV["Corporativo BV"]
     V --> Forms["Solicitudes / postulaciones"]
     B --> Forms
     C --> Forms
+    K --> Forms
+    BV --> Forms
 ```
 
 - La intranet es el centro privado de administración y la fuente autorizada de lo que se publica; el sistema de origen del catálogo puede ser distinto.
@@ -67,7 +71,7 @@ flowchart LR
 
 ### 6.1 Modelo conceptual
 
-Un **artículo maestro** representa una entidad identificada de forma estable. Una **oferta por empresa** decide si ese artículo aparece en su tienda y con qué datos comerciales autorizados. La relación admite que un artículo aparezca en una, dos o tres tiendas sin duplicar toda su información.
+Un **artículo maestro** representa una entidad identificada de forma estable. Una **oferta por empresa** decide si ese artículo aparece en su tienda y con qué datos comerciales autorizados. La relación admite que un artículo aparezca en una o varias tiendas sin duplicar toda su información.
 
 | Dato | Regla propuesta |
 | --- | --- |
@@ -84,7 +88,7 @@ Cada campo tendrá una fuente de autoridad y prioridad de actualización. El sis
 
 ### 6.2 Fuentes: SICAR primero y Odoo después
 
-La integración usará un **modelo interno común** y adaptadores por sistema. El adaptador de SICAR extraerá y convertirá los artículos al modelo corporativo durante la primera etapa. Más adelante se construirá y probará un adaptador de Odoo que produzca el mismo modelo; las tres páginas seguirán consumiendo la API corporativa y no necesitarán conectarse directamente a ninguno de los dos sistemas.
+La integración usará un **modelo interno común** y adaptadores por sistema. El adaptador de SICAR extraerá y convertirá los artículos al modelo corporativo durante la primera etapa. Más adelante se construirá y probará un adaptador de Odoo que produzca el mismo modelo; las páginas autorizadas consumirán la API corporativa y no necesitarán conectarse directamente a ninguno de los dos sistemas.
 
 - El adaptador de SICAR será de lectura para este alcance. Antes de automatizarlo, revisar la extracción existente, dónde está instalado SICAR, cómo accederá el servidor Ubuntu y qué datos y permisos están disponibles. No asumir acceso directo, compatibilidad o actualización en tiempo real.
 - La futura conexión de Odoo, su versión, despliegue, permisos y mecanismo de integración se definirán y verificarán cuando corresponda; no se presupone que ya exista ni que tenga la misma estructura de datos.
@@ -99,7 +103,7 @@ La integración usará un **modelo interno común** y adaptadores por sistema. E
 2. Recibir un lote identificable; comprobar formato, tamaño, codificación, columnas, IDs, unidades, moneda y fechas. Mapear columnas al modelo y detectar duplicados, cambios, errores e imágenes faltantes.
 3. Generar **vista previa** con altas, cambios, conflictos, artículos rechazados y efecto por empresa. No publicar ni modificar la fuente durante la vista previa.
 4. Aplicar solo con permiso de la persona responsable; registrar quién, cuándo, fuente, versión y resultados. Aislar fallos por registro y permitir reintento sin duplicar artículos.
-5. Mantener las ofertas en borrador hasta revisión y aprobación de cada empresa. Un artículo nuevo o ausente de una importación no debe aparecer, desaparecer ni cambiar de precio en las tres tiendas automáticamente sin una regla de negocio aprobada.
+5. Mantener las ofertas en borrador hasta revisión y aprobación de cada empresa. Un artículo nuevo o ausente de una importación no debe aparecer, desaparecer ni cambiar de precio en las tiendas automáticamente sin una regla de negocio aprobada.
 6. Conservar evidencia, historial y respaldo; permitir revertir un lote sin perder cambios posteriores. Registrar el resultado sin exponer costos, credenciales ni datos privados en logs públicos.
 
 Para actualizaciones automáticas, acordar frecuencia, reconexión, alerta, detección de datos desactualizados y qué hacer ante una importación parcial o fallida. La última importación correcta no equivale a garantía de inventario actual.
@@ -159,7 +163,7 @@ El correo es una **notificación**, no el único registro de una solicitud que e
 
 ## 10. Plan por fases y criterios de aceptación
 
-1. **Descubrimiento:** inventariar las tres empresas y sitios, la intranet desplegada, instalación y acceso de lectura a SICAR, responsables, permisos, canales de contacto y alcance comercial de cada tienda; registrar los requisitos conocidos para el futuro cambio a Odoo.
+1. **Descubrimiento:** inventariar las cuatro empresas y el sitio corporativo, la intranet desplegada, instalación y acceso de lectura a SICAR, responsables, permisos, canales de contacto y alcance comercial de cada tienda; registrar los requisitos conocidos para el futuro cambio a Odoo.
 2. **Modelo y publicación:** definir IDs, asociación por empresa, edición y aprobación de contenidos, permisos y API pública. Diseñar los límites de persistencia y concurrencia en función del volumen real.
 3. **Importación piloto:** cargar un lote pequeño de prueba, revisar mapeo, duplicados, vista previa, errores, auditoría, respaldo y reversión sin afectar datos reales.
 4. **VALMA piloto:** conectar catálogo y vacantes autorizadas, mantener la tienda en estado coherente con sus funciones reales y verificar estados vacíos, errores, accesibilidad y vistas móviles.
@@ -171,7 +175,7 @@ Se considera aceptable cuando un artículo compartido se importe una vez y se pu
 
 ## 11. Preguntas pendientes
 
-- ¿Cuáles son las otras dos empresas, dominios, sitios y responsables?
+- ¿Cuáles son los dominios, responsables y contenidos de BiotecZac, Pro Omnimedic, Kilatek y Corporativo BV? ¿Qué funciones compartidas necesita cada sitio?
 - ¿Dónde está instalado SICAR y cómo accederá de forma segura el servicio Ubuntu a sus datos en modo lectura? ¿Qué campos, imágenes y existencias se podrán extraer y con qué frecuencia?
 - ¿Cuándo estará disponible Odoo, qué instalación se usará y cómo se homologarán productos, empresas, almacenes y precios con los identificadores existentes de SICAR?
 - ¿Cuáles artículos, imágenes, precios, existencias y almacenes corresponden a cada empresa? ¿Quién aprueba publicación y cambios?

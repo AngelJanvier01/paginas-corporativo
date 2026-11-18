@@ -12,8 +12,8 @@ Este documento es una propuesta técnica: **las rutas, respuestas y funcionalida
 
 - La intranet dispone en su repositorio local de una arquitectura Node.js/Express, módulos, empresas y permisos. Su estado y configuración reales en producción se verificarán antes de integrar o desplegar.
 - El sitio de VALMA está previsto para `https://ingenieriavalma.com`; su correo de solicitudes es `direccion@ingenieriavalma.com`. El dominio y la recepción de correo deben verificarse antes de la puesta en producción.
-- La web actual de VALMA es estática: sus vacantes son de ejemplo y las postulaciones abren el correo del visitante. El formulario de contacto prepara un correo; no envía automáticamente.
-- Se contempla la integración de tres páginas. Los nombres, dominios y responsables de las otras dos empresas están pendientes de confirmar.
+- La web actual de VALMA es estática: su bolsa invita a consultar vacantes por correo y el formulario de contacto prepara un mensaje; no envía automáticamente.
+- Se preparan cinco sitios: VALMA, BiotecZac, Pro Omnimedic, Kilatek y Corporativo BV. Sus dominios restantes, responsables y necesidades de integración están pendientes de confirmar.
 
 ## 3. Arquitectura y límites
 
@@ -22,8 +22,10 @@ flowchart LR
     RH["RH · intranet privada"] --> Admin["Módulo de reclutamiento"]
     Admin --> Datos[("Almacén central")]
     Web1["VALMA"] --> Publica["API pública limitada"]
-    Web2["Empresa 2"] --> Publica
-    Web3["Empresa 3"] --> Publica
+    Web2["BiotecZac"] --> Publica
+    Web3["Pro Omnimedic"] --> Publica
+    Web4["Kilatek"] --> Publica
+    Web5["Corporativo BV"] --> Publica
     Publica --> Datos
     Publica --> Solicitudes["Recepción controlada de postulaciones"]
     Solicitudes --> Datos
