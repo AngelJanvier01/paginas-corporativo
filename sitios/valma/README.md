@@ -10,11 +10,21 @@ Antes de publicar, actualiza también la lista de respaldo desde PowerShell:
 
 Publica `images/`, `images.json` y `productos-carrusel.js` junto con los demás archivos del sitio. Si el alojamiento no permite listar directorios, el carrusel utilizará `images.json`; vuelve a ejecutar el comando después de agregar o quitar imágenes y publica la lista actualizada.
 
+En producción se consulta directamente `images.json`. La lectura de la carpeta se conserva para la vista previa en localhost. El carrusel descarga y decodifica las imágenes antes de iniciar la animación, reintenta una vez las descargas fallidas y omite las que sigan sin estar disponibles. Durante la carga conserva las imágenes iniciales del HTML.
+
+`site-update.js` y `sw.js` retiran el service worker que quedó del alojamiento anterior, sin registrar uno para visitantes nuevos ni borrar cookies o datos de formularios. Mantén ambos archivos en futuras publicaciones. La configuración de publicación está en [server/DEPLOYMENT.md](server/DEPLOYMENT.md).
+
 ## Procedencia de imágenes añadidas
 
 - `images/estetoscopio-wikimedia.png`: fotografía ilustrativa de Sprinno, [Stethoscope.png en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stethoscope.png), dedicada al dominio público mediante CC0 1.0. No identifica una marca o modelo específico de VALMA.
 
-## Formularios y correo
+## Contacto rápido y cobertura
+
+`contacto-flotante.js` añade en las cinco páginas un panel que se abre al pulsar «Contáctanos», con enlace a WhatsApp de la coordinadora (81 1005 0873), mensaje de cortesía y alternativa por correo. El QR local está en `assets/contacto/whatsapp-valma.png` y contiene el mismo enlace y mensaje. Si cambia alguno, regenerar también el QR. El formato internacional sigue la [indicación de WhatsApp para México](https://faq.whatsapp.com/1294841057948784).
+
+El mapa conserva las 32 geometrías de INEGI. Resalta los 15 estados derivados de las ubicaciones confirmadas por el propietario, con un marcador por capital. Las coordenadas se consultaron en el [Catálogo Único de INEGI](https://www.inegi.org.mx/servicios/catalogoUnico.html), usando `/wscatgeo/v2/localidades/{clave}`. La proyección es Albers (`lat_1=17.5`, `lat_2=29.5`, `lat_0=23.5`, `lon_0=-102`, WGS84), igual que la geometría existente. Los marcadores son referencias estatales, no domicilios de sucursales.
+
+## Servicio de formularios
 
 El servicio de `server/` sirve el sitio y recibe los formularios de contacto y postulación. Envía los mensajes a `direccion@ingenieriavalma.com` mediante la cuenta real `it@bioteczac.com`; la dirección de la persona que escribe queda como dirección de respuesta. El currículum es opcional, debe ser PDF y tener un tamaño máximo de 5 MB. El servicio adjunta el archivo en memoria y no lo guarda en el servidor.
 

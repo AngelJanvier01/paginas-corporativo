@@ -21,6 +21,63 @@
         ],
         "createdAt": "2026-11-18T15:10:10.147Z",
         "reason": "Codex: separadores y tarjetas transparentes revisados en escritorio y movil; el texto cuenta con espacio interior."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "sitios/valma/index.html"
+        ],
+        "createdAt": "2026-11-19T19:13:57.196Z",
+        "reason": "user confirmed: solicito un carrusel continuo de productos, pausa al pasar el cursor y varios aumentos de velocidad; se conserva movimiento reducido y pausa por foco."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "sitios/valma/aviso-privacidad.html",
+          "sitios/valma/bolsa.html",
+          "sitios/valma/empleados.html",
+          "sitios/valma/tienda.html"
+        ],
+        "createdAt": "2026-11-19T19:13:57.529Z",
+        "reason": "Agent: falso positivo del CSS compartido valma.css; estas cuatro paginas no contienen product-showcase ni cargan productos-carrusel.js, por lo que product-scroll no se aplica."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "sitios/valma/bolsa.html"
+        ],
+        "createdAt": "2026-11-19T19:39:13.973Z",
+        "reason": "Agent: false positive. Shared CSS is classified as a dark page, but these pages use white/paper surfaces. Contact widget shadows have 4px/10px vertical offsets and provide elevation, not a zero-offset colored halo."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "sitios/valma/tienda.html"
+        ],
+        "createdAt": "2026-11-19T19:39:14.072Z",
+        "reason": "Agent: false positive. Shared CSS is classified as a dark page, but these pages use white/paper surfaces. Contact widget shadows have 4px/10px vertical offsets and provide elevation, not a zero-offset colored halo."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "sitios/valma/empleados.html"
+        ],
+        "createdAt": "2026-11-19T19:39:14.171Z",
+        "reason": "Agent: false positive. Shared CSS is classified as a dark page, but these pages use white/paper surfaces. Contact widget shadows have 4px/10px vertical offsets and provide elevation, not a zero-offset colored halo."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "sitios/valma/aviso-privacidad.html"
+        ],
+        "createdAt": "2026-11-19T19:39:14.260Z",
+        "reason": "Agent: false positive. Shared CSS is classified as a dark page, but these pages use white/paper surfaces. Contact widget shadows have 4px/10px vertical offsets and provide elevation, not a zero-offset colored halo."
       }
     ]
   }

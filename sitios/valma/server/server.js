@@ -59,7 +59,7 @@ function createApp(transport) {
         });
     });
 
-    const staticFiles = new Set(['index.html', 'bolsa.html', 'tienda.html', 'empleados.html', 'aviso-privacidad.html', 'valma.css', 'productos-carrusel.js', 'formularios.js', 'images.json', 'logovalma.jpg', 'valma-insumos-web.jpg']);
+    const staticFiles = new Set(['index.html', 'bolsa.html', 'tienda.html', 'empleados.html', 'aviso-privacidad.html', 'valma.css', 'productos-carrusel.js', 'formularios.js', 'site-update.js', 'sw.js', 'contacto-flotante.js', 'images.json', 'logovalma.jpg', 'valma-insumos-web.jpg']);
     const imageOnly = (req, res, next) => /\.(?:jpe?g|jfif|png|apng|webp|gif|avif|svg|bmp|ico)$/i.test(req.path) ? next() : res.sendStatus(404);
     app.use('/images', imageOnly, express.static(path.join(site, 'images'), { fallthrough: false, dotfiles: 'deny', index: false }));
     app.use('/assets', imageOnly, express.static(path.join(site, 'assets'), { fallthrough: false, dotfiles: 'deny', index: false }));
@@ -68,6 +68,7 @@ function createApp(transport) {
         const file = req.path === '/' ? 'index.html' : req.path.slice(1);
         if (!staticFiles.has(file)) return next();
         if (file === 'images.json') res.set('Cache-Control', 'no-store');
+        else if (/\.(?:html|css|js)$/.test(file)) res.set('Cache-Control', 'no-cache');
         return res.sendFile(path.join(site, file));
     });
     app.use((err, req, res, next) => res.status(err.status || 500).send('No disponible'));

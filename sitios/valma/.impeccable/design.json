@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-09T17:25:38.861853+00:00",
+  "generatedAt": "2026-11-19T19:39:14.671793+00:00",
   "title": "Design System: VALMA",
   "extensions": {
     "colorMeta": {
@@ -145,8 +145,36 @@
         "value": "1024px"
       },
       {
+        "name": "navigation",
+        "value": "900px"
+      },
+      {
+        "name": "coverage-stack",
+        "value": "850px"
+      },
+      {
         "name": "mobile",
         "value": "700px"
+      },
+      {
+        "name": "compact-map",
+        "value": "480px"
+      },
+      {
+        "name": "compact-contact",
+        "value": "380px"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "contact-launcher",
+        "value": "0 4px 18px #0a374726",
+        "purpose": "Separar el acceso flotante de la página, con desplazamiento vertical."
+      },
+      {
+        "name": "contact-panel",
+        "value": "0 10px 40px #0a374726",
+        "purpose": "Elevación del panel blanco de contacto, abierto solo por el visitante."
       }
     ]
   },
@@ -156,7 +184,7 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Acción principal compartida.",
-      "html": "<button class=\"ds-primary\">Contactar ↗</button>",
+      "html": "<button class=\"ds-primary\">Contáctanos</button>",
       "css": ".ds-primary{background:#0a3747;color:#fff;border:0;border-radius:5px;min-height:46px;padding:12px 20px;font:700 14px DM Sans,sans-serif;cursor:pointer}.ds-primary:hover{background:#006b66}.ds-primary:focus-visible{outline:3px solid #d18820;outline-offset:3px}"
     },
     {
@@ -164,7 +192,7 @@
       "kind": "button",
       "refersTo": "button-accent",
       "description": "Acción destacada de portada.",
-      "html": "<button class=\"ds-accent\">Conoce nuestros servicios ↗</button>",
+      "html": "<button class=\"ds-accent\">Solicitar información</button>",
       "css": ".ds-accent{background:#007f77;color:white;border:0;border-radius:5px;min-height:56px;padding:15px 22px;font:700 14px DM Sans,sans-serif;cursor:pointer}.ds-accent:hover{background:#006b66}.ds-accent:focus-visible{outline:3px solid #d18820;outline-offset:3px}"
     },
     {
@@ -177,23 +205,30 @@
     {
       "name": "Navegación",
       "kind": "nav",
-      "description": "Navegación con acción destacada.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\">Servicios</a><a href=\"#\">Nosotros</a><a class=\"ds-nav-cta\" href=\"#\">Contactar</a></nav>",
+      "description": "Navegación sobre blanco, con al menos 22 px de margen lateral y menú desplegable hasta 900 px.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Productos</a><a href=\"#\">Cobertura</a><a href=\"#\">Nosotros</a><a class=\"ds-nav-cta\" href=\"#\">Contáctanos</a></nav>",
       "css": ".ds-nav{display:flex;gap:24px;align-items:center;font:700 14px DM Sans,sans-serif}.ds-nav a{color:#0a3747;text-decoration:none}.ds-nav a:hover{color:#007f77}.ds-nav a:focus-visible{outline:3px solid #d18820;outline-offset:3px}.ds-nav .ds-nav-cta{background:#0a3747;color:white;border-radius:5px;padding:12px 15px}"
     },
     {
       "name": "Tarjeta de servicio",
       "kind": "card",
-      "description": "Servicio en lista editorial.",
-      "html": "<article class=\"ds-service\"><h3>Ingeniería clínica</h3><p>Soluciones para el sector salud.</p></article>",
-      "css": ".ds-service{border-top:2px solid #007f77;padding:25px 0;color:#0a3747;font:16px/1.6 DM Sans,sans-serif}.ds-service h3{font:700 1.4rem Manrope,sans-serif;margin:0 0 12px}.ds-service p{margin:0;color:#466369}"
+      "description": "Tarjeta blanca de productos o servicios, con borde tenue y sin sombra.",
+      "html": "<article class=\"ds-service\"><h3>Equipo e instrumental</h3><p>Productos para instituciones de salud.</p></article>",
+      "css": ".ds-service{padding:30px;color:#0a3747;background:#fff;border:1px solid #d6e6e1;border-radius:14px;font:16px/1.6 DM Sans,sans-serif}.ds-service h3{font:700 1.4rem Manrope,sans-serif;margin:0 0 12px}.ds-service p{margin:0;color:#405f66}"
     },
     {
-      "name": "Filtro",
+      "name": "Estado de cobertura",
       "kind": "chip",
-      "description": "Filtro de vacantes.",
-      "html": "<button class=\"ds-chip\">Todas</button>",
-      "css": ".ds-chip{border:1px solid #b8d5d0;background:white;color:#0a3747;border-radius:5px;min-height:44px;padding:8px 18px;font:600 14px DM Sans,sans-serif;cursor:pointer}.ds-chip:hover{background:#e3f2eb}.ds-chip:focus-visible{outline:3px solid #d18820;outline-offset:3px}"
+      "description": "Selección estatal con área táctil de al menos 44 px; el mapa mantiene resaltados todos los estados con presencia.",
+      "html": "<button class=\"ds-state\" aria-pressed=\"false\">Coahuila</button>",
+      "css": ".ds-state{border:1px solid #77a99a;background:#0a3747;color:#fff;border-radius:8px;min-height:44px;padding:10px 13px;font:600 .83rem DM Sans,sans-serif;cursor:pointer}.ds-state:hover,.ds-state[aria-pressed=true]{background:#bcef70;border-color:#bcef70;color:#0a3747}.ds-state:focus-visible{outline:3px solid #d18820;outline-offset:3px}"
+    },
+    {
+      "name": "Contacto flotante",
+      "kind": "custom",
+      "description": "Panel no modal abierto al tocar Contáctanos. Ofrece WhatsApp con mensaje precargado, QR local y correo; cierra con Escape y devuelve el foco al botón. Respeta áreas seguras y permite desplazamiento en pantallas bajas.",
+      "html": "<div class=\"ds-contact-panel\"><h2>¿En qué podemos ayudarte?</h2><p>Habla con nuestra coordinadora sobre los productos que necesitas.</p><button class=\"ds-contact-button\">Enviar mensaje por WhatsApp</button></div>",
+      "css": ".ds-contact-panel{max-width:306px;padding:22px;border:1px solid #d6e6e1;border-radius:12px;background:#fff;color:#0a3747;box-shadow:0 10px 40px #0a374726;font:16px/1.5 DM Sans,sans-serif}.ds-contact-panel h2{margin:0;font:700 1.3rem/1.25 Manrope,sans-serif}.ds-contact-panel p{color:#405f66;font-size:.95rem}.ds-contact-button{min-height:48px;padding:12px;border:0;border-radius:5px;background:#007f77;color:#fff;font:700 .95rem DM Sans,sans-serif;cursor:pointer}.ds-contact-button:hover{background:#0a3747}.ds-contact-button:focus-visible{outline:3px solid #d18820;outline-offset:3px}"
     }
   ],
   "narrative": {

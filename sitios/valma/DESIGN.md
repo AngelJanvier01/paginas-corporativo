@@ -75,6 +75,8 @@ Los títulos utilizan una escala expresiva y espaciado compacto; el cuerpo manti
 
 ## Layout
 
+El encabezado conserva al menos 22 px de margen horizontal, respetando las áreas seguras del dispositivo. El contacto flotante se abre solo a petición del visitante y usa los colores existentes, controles de al menos 44 px y un panel desplazable en pantallas bajas. Los enlaces de acción utilizan texto sin flechas Unicode para evitar su representación como emoji en móviles.
+
 La portada combina dos columnas y una imagen a sangre; las secciones usan una retícula y espaciado amplio. El contenido principal alcanza 1240 px, mientras la portada usa una alineación propia. Las secciones tienen 98 px de separación vertical, reducida a 64 px en móvil. A 700 px o menos, la portada y las vacantes se apilan, y la banda de servicios pasa a dos columnas.
 
 ## Elevation & Depth

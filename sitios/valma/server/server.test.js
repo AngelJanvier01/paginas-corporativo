@@ -36,3 +36,15 @@ test('no expone archivos internos del servidor', async () => {
     assert.equal((await fetch(base + '/assets/clientes/FUENTES.md')).status, 404);
     assert.equal((await fetch(base + '/index.html')).status, 200);
 });
+test('sirve la retirada del worker antiguo y revalida los recursos de la interfaz', async () => {
+    for (const file of ['sw.js', 'site-update.js?v=20261119', 'productos-carrusel.js?v=20261119', 'index.html', 'valma.css']) {
+        const response = await fetch(`${base}/${file}`);
+        assert.equal(response.status, 200, file);
+        assert.equal(response.headers.get('cache-control'), 'no-cache', file);
+        if (file.startsWith('sw.js')) {
+            assert.match(response.headers.get('content-type'), /javascript/);
+            assert.match(await response.text(), /registration\.unregister/);
+        }
+    }
+    assert.equal((await fetch(base + '/images.json')).headers.get('cache-control'), 'no-store');
+});
