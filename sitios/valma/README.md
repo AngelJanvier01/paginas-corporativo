@@ -10,7 +10,9 @@ Antes de publicar, actualiza también la lista de respaldo desde PowerShell:
 
 Publica `images/`, `images.json` y `productos-carrusel.js` junto con los demás archivos del sitio. Si el alojamiento no permite listar directorios, el carrusel utilizará `images.json`; vuelve a ejecutar el comando después de agregar o quitar imágenes y publica la lista actualizada.
 
-En producción se consulta directamente `images.json`. La lectura de la carpeta se conserva para la vista previa en localhost. El carrusel descarga y decodifica las imágenes antes de iniciar la animación, reintenta una vez las descargas fallidas y omite las que sigan sin estar disponibles. Durante la carga conserva las imágenes iniciales del HTML.
+En producción se consulta directamente `images.json`. La lectura de la carpeta se conserva para la vista previa en localhost. El carrusel descarga y decodifica como máximo cuatro imágenes a la vez. Inicia cuando hay suficientes imágenes listas para llenar la vista, sin esperar a las más lentas; reintenta una vez las fallidas y omite las que sigan sin estar disponibles. La descarga y la decodificación tienen tiempo límite. Durante el arranque conserva las imágenes iniciales del HTML.
+
+Se pausa al pasar el mouse, al navegar por teclado dentro de la galería o al ocultar la pestaña. Tocar o hacer clic en una imagen no deja una pausa persistente: al retirar el mouse continúa. Conserva el avance al cambiar el ancho y no reinicia por cambios de altura de las barras del navegador móvil. Al volver desde otra página sincroniza la visibilidad. Respeta movimiento reducido y muestra cada archivo una sola vez por vuelta; la copia auxiliar permite cerrar el ciclo sin duplicados simultáneos en la vista.
 
 `site-update.js` y `sw.js` retiran el service worker que quedó del alojamiento anterior, sin registrar uno para visitantes nuevos ni borrar cookies o datos de formularios. Mantén ambos archivos en futuras publicaciones. La configuración de publicación está en [server/DEPLOYMENT.md](server/DEPLOYMENT.md).
 

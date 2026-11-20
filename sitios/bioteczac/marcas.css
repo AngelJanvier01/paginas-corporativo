@@ -1,0 +1,41 @@
+.brands{border-top:1px solid var(--line);background:var(--paper)}
+.brands .section-heading>p{max-width:38ch}
+.brand-tools{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.brand-search{width:min(100%,420px)}
+.brand-search label{display:block;margin-bottom:8px}
+.brand-search input{min-height:48px}
+.brand-search .text-link{font-size:14px}
+.brand-count{padding-bottom:12px;color:var(--muted);font-size:14px;white-space:nowrap}
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:16px}
+.brand-item{min-width:0}
+.brand-choice{height:100%;display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 18px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);text-align:center;text-decoration:none;transition:border-color .18s ease-out,background-color .18s ease-out}
+.brand-choice:hover{border-color:var(--blue)}
+.brand-choice[aria-pressed="true"]{border-color:var(--blue);background:var(--ice);outline:1px solid var(--blue)}
+.brand-choice:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.brand-logo{display:flex;align-items:center;justify-content:center;width:100%;height:100px;background:#fff;border-radius:4px;padding:12px}
+.brand-logo img{width:100%;height:100%;object-fit:contain;max-width:230px}
+.brand-choice[data-brand="3M Health Care"] .brand-logo{overflow:hidden}
+.brand-choice[data-brand="3M Health Care"] .brand-logo img{height:auto}
+.brand-name{font-size:16px;font-weight:600;overflow-wrap:anywhere}
+.brand-choice-label{color:var(--blue);font-size:14px}
+.brand-empty{padding:32px 0;border-top:1px solid var(--line)}
+.brand-empty h3{font-size:22px}
+.brand-empty p{margin-top:12px;color:var(--muted)}
+.brand-empty .text-link{margin:16px 24px 0 0;font-size:15px}
+.brand-pages{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:16px;margin-top:24px;font-size:14px}
+.brand-page-button{min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--blue);font-size:14px;font-weight:600}
+.brand-page-button:hover:not(:disabled){border-color:var(--blue);background:var(--ice)}
+.brand-page-button:disabled{color:var(--muted);background:var(--ice);cursor:default}
+.brand-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,.55fr);align-items:center;gap:32px;margin-top:32px;padding:32px;background:var(--ice);border-left:4px solid var(--blue)}
+.brand-eyebrow{font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.brand-detail h3{font-size:28px;overflow-wrap:anywhere}
+#brand-description{color:var(--muted);margin:16px 0 0;max-width:65ch}
+.brand-lines{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:14px;font-weight:600}
+.brand-lines li{padding-left:12px;border-left:2px solid var(--blue)}
+.brand-detail-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0}
+.brand-detail-actions .button{max-width:100%;overflow-wrap:anywhere}
+.brand-detail-actions .text-link{font-size:14px}
+.brand-note{margin-top:24px;font-size:14px;color:var(--muted)}
+@media(max-width:900px){.brand-detail{grid-template-columns:1fr}.brand-detail-actions{flex-direction:row;align-items:center;flex-wrap:wrap;gap:16px 24px}}
+@media(max-width:600px){.brand-tools{align-items:stretch;flex-direction:column;gap:8px}.brand-count{padding:0}.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.brand-choice{padding:14px 10px;gap:6px}.brand-logo{height:76px;padding:8px}.brand-name{font-size:14px}.brand-choice-label{font-size:13px}.brand-detail{gap:24px;padding:24px 20px}.brand-detail h3{font-size:25px}.brand-detail-actions{align-items:stretch;flex-direction:column}.brand-detail-actions .text-link{justify-content:flex-start}.brand-pages{gap:10px}.brand-page-button{padding:10px 12px}}
+@media(prefers-reduced-motion:reduce){.brand-choice{transition:none}}

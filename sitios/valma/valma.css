@@ -311,8 +311,8 @@ a{text-underline-offset:.2em}
 @media(prefers-reduced-motion:reduce){.cta,.btn,.ghost,.back,.hero-caption a{transition:none}}
 
 /* Logotipo del encabezado: mayor presencia sin alterar sus proporciones. */
-.brand img{width:72px;height:72px;object-fit:contain;flex-shrink:0}
-@media(max-width:700px){.brand img{width:60px;height:60px}}
+header .brand img{width:144px;height:144px;object-fit:contain;flex-shrink:0}
+@media(max-width:700px){header .brand img{width:120px;height:120px}}
 
 /* Consulta directa y jerarquía en páginas de apoyo. */
 .page-jobs .careers-main{min-height:calc(100vh - 180px);padding:clamp(48px,7vw,96px) 22px}
@@ -354,9 +354,10 @@ a{text-underline-offset:.2em}
 
 /* Navegación principal: pocas opciones y un acceso claro al contacto. */
 .page-home .header{background:#fff}
+.page-home [id]{scroll-margin-top:272px}
 .page-home .nav{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;min-height:78px;padding:10px 0}
 .page-home .brand{gap:12px;flex-shrink:0;text-decoration:none}
-.page-home .brand img{width:116px;height:116px}
+.page-home .brand img{width:232px;height:232px}
 .page-home .brand .title{font-size:1.18rem;line-height:1.15}
 .page-home .brand .tag{font-size:.75rem;color:#526f70}
 .page-home .menu{display:flex;align-items:center;gap:clamp(4px,1.3vw,20px);padding:0}
@@ -366,14 +367,14 @@ a{text-underline-offset:.2em}
 .mobile-actions button svg{display:block}
 @media(max-width:900px){
  .page-home .nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;min-height:72px;padding:8px 0}
- .page-home .brand img{width:104px;height:104px}
+ .page-home .brand img{width:208px;height:208px}
  .mobile-actions{display:flex}
  .mobile-actions button{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid #b8d5ca;border-radius:6px;background:#fff;color:#0a3747;font-weight:700;cursor:pointer}
  .page-home .menu{display:none;grid-column:1/-1;width:100%;align-items:stretch;flex-direction:column;gap:2px;padding:12px 0 8px}
  .page-home .menu.is-open{display:flex}
  .page-home .menu a{padding:11px 12px}
  .page-home .menu a.nav-contact{margin:8px 0 0;align-self:flex-start}
- .page-home [id]{scroll-margin-top:130px}
+ .page-home [id]{scroll-margin-top:244px}
 }
 @media(max-width:700px){.page-home [id]{scroll-margin-top:20px}}
 @media(max-width:420px){.page-home .brand .tag{display:none}}
@@ -410,7 +411,7 @@ a{text-underline-offset:.2em}
  .coverage-panel h3{max-width:none}
 }
 
-/* Galería de productos: imágenes completas y movimiento tranquilo. */
+/* Galería de productos: imágenes completas y movimiento continuo. */
 .page-home section.product-showcase{padding:64px 0 72px;background:#f5f8f4;overflow:hidden}
 .product-showcase-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
 .product-showcase-heading h2{margin:0 0 8px;color:#0a3747;font-size:clamp(1.65rem,2.6vw,2.3rem);line-height:1.15}
@@ -425,8 +426,8 @@ a{text-underline-offset:.2em}
 .product-showcase.is-ready .product-showcase-track{animation:product-scroll var(--product-duration, 80s) linear infinite;animation-play-state:paused}
 .product-showcase.is-ready.is-visible .product-showcase-track{animation-play-state:running}
 .product-showcase.is-ready.is-visible.is-paused-tab .product-showcase-track{animation-play-state:paused}
-.product-showcase.is-ready.is-visible:focus-within .product-showcase-track{animation-play-state:paused}
-@media(hover:hover){.product-showcase.is-ready.is-visible:hover .product-showcase-track{animation-play-state:paused}}
+.product-showcase.is-ready.is-visible .product-showcase-viewport:focus-visible .product-showcase-track{animation-play-state:paused}
+.product-showcase.is-ready.is-visible.is-hovered .product-showcase-track{animation-play-state:paused}
 @keyframes product-scroll{to{transform:translateX(-50%)}}
 @media(max-width:700px){
  .page-home section.product-showcase{padding:48px 0 54px}
@@ -482,4 +483,13 @@ a{text-underline-offset:.2em}
  .hero-caption strong{font-size:1.1rem}
  .hero-caption a{padding:8px;font-size:.8rem}
  .contact-panel{padding:18px}
+}
+
+/* El logotipo crece al doble; los controles conservan su espacio en móvil. */
+@media(max-width:420px){
+ .page-jobs header .wrap,.page-staff header .wrap,.page-shop header .wrap{flex-wrap:wrap}
+ .privacy-header .privacy-header-inner{flex-wrap:wrap}
+}
+@media(max-width:359px){
+ .mobile-actions .menu-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 }

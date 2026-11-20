@@ -1,0 +1,20 @@
+{
+  "3M_Healthcare.png": {
+    "name": "3M Health Care",
+    "description": "Productos para el cuidado de la salud, con opciones para curación, protección y primeros auxilios.",
+    "lines": ["Cuidado de heridas", "Cintas y apósitos", "Protección personal"],
+    "source": "https://www.3m.com.mx/3M/es_MX/p/c/i/cuidado-de-la-salud/"
+  },
+  "61dc53cc625ea2e72768a16a_Hergom_logo-01.jpg": {
+    "name": "Hergom",
+    "description": "Equipo, instrumental y suministros para la atención de la salud. Su oferta incluye opciones de exploración, rehabilitación y bienestar.",
+    "lines": ["Equipo e instrumental", "Suministros médicos", "Rehabilitación"],
+    "source": "https://www.byhergom.com/"
+  },
+  "LOGO_ZEGEN_NUEVO-700x156-1-1.png": {
+    "name": "Zegen",
+    "description": "Equipo para diagnóstico y monitoreo, con líneas para atención médica y veterinaria.",
+    "lines": ["Monitoreo", "Diagnóstico por imagen", "Equipo veterinario"],
+    "source": "https://zegenmedical.com/"
+  }
+}

@@ -7,7 +7,14 @@
     const imageTypes = /\.(?:jpe?g|jfif|png|apng|webp|gif|avif|svg|bmp|ico)$/i;
     const initialSources = [...track.querySelectorAll('img')].map(image => image.getAttribute('src'));
     let images = [];
-    let drawing = 0;
+    let loadingFinished = false;
+    let drawTimer;
+    let viewportWidth = viewport.clientWidth;
+
+    function scheduleDraw() {
+        clearTimeout(drawTimer);
+        drawTimer = setTimeout(draw, 100);
+    }
 
     async function loadImage(source, retry = false) {
         const image = new Image();
@@ -17,17 +24,24 @@
         image.fetchPriority = 'low';
         try {
             await new Promise((resolve, reject) => {
+                let settled = false;
+                // Bound both the download and decode; neither may hold up the gallery.
                 const timeout = setTimeout(() => finish(new Error('Image timeout')), 20000);
                 function finish(error) {
+                    if (settled) return;
+                    settled = true;
                     clearTimeout(timeout);
                     image.onload = image.onerror = null;
-                    error ? reject(error) : resolve();
+                    if (error) { image.removeAttribute('src'); reject(error); }
+                    else resolve();
                 }
-                image.onload = () => finish();
+                image.onload = () => {
+                    if (image.decode) image.decode().then(() => finish(), finish);
+                    else finish();
+                };
                 image.onerror = () => finish(new Error('Image unavailable'));
                 image.src = retry ? `${source}?retry=1` : source;
             });
-            if (image.decode) await image.decode();
             return image.naturalWidth ? image : null;
         } catch {
             return retry ? null : loadImage(source, true);
@@ -42,14 +56,23 @@
             while (next < sources.length) {
                 const index = next++;
                 loaded[index] = await loadImage(sources[index]);
+                // Start with the decoded products; one slow file must not block all others.
+                images = loaded.filter(Boolean);
+                scheduleDraw();
             }
         }));
         return loaded.filter(Boolean);
     }
 
-    async function draw() {
-        if (!images.length) return;
-        const version = ++drawing;
+    function draw() {
+        if (!images.length || !viewport.clientWidth) return;
+        const currentItem = track.querySelector('.product-showcase-item');
+        const currentGroup = track.querySelector('.product-showcase-group');
+        const itemWidth = currentItem?.getBoundingClientRect().width || 0;
+        const gap = currentGroup ? parseFloat(getComputedStyle(currentGroup).columnGap) || 0 : 0;
+        // Keep the HTML fallback until enough decoded images can fill the viewport.
+        if (!loadingFinished && images.length * (itemWidth + gap) <= viewport.clientWidth + itemWidth) return;
+        const elapsed = track.getAnimations()[0]?.currentTime || 0;
         const group = document.createElement('div');
         group.className = 'product-showcase-group';
         images.forEach(image => {
@@ -59,19 +82,21 @@
             group.append(item);
         });
         track.replaceChildren(group);
-        section.classList.remove('is-ready');
-        if (images.length < 2 || reducedMotion.matches) return;
-        // If all products fit, leave them still instead of repeating a visible image.
-        if (group.getBoundingClientRect().width <= viewport.clientWidth) return;
+        const width = group.getBoundingClientRect().width;
+        if (images.length < 2 || reducedMotion.matches || width <= viewport.clientWidth + itemWidth) {
+            section.classList.remove('is-ready');
+            return;
+        }
+        // Sources have already loaded and decoded; clones reuse those cached resources.
         const copy = group.cloneNode(true);
         copy.classList.add('product-showcase-copy');
         copy.setAttribute('aria-hidden', 'true');
         track.append(copy);
-        // Do not move a card into view until both groups are decoded.
-        await Promise.all([...copy.querySelectorAll('img')].map(image => image.decode ? image.decode().catch(() => {}) : Promise.resolve()));
-        if (version !== drawing) return;
-        track.style.setProperty('--product-duration', `${group.getBoundingClientRect().width / 106.1775}s`);
+        track.style.setProperty('--product-duration', `${width / 106.1775}s`);
         section.classList.add('is-ready');
+        // Preserve the travelled distance as more products arrive or the width changes.
+        const animation = track.getAnimations()[0];
+        if (animation) animation.currentTime = elapsed;
     }
 
     async function listImages() {
@@ -116,20 +141,47 @@
         return null;
     }
 
+    function syncVisibility() {
+        const bounds = section.getBoundingClientRect();
+        section.classList.toggle('is-visible', bounds.bottom > 0 && bounds.top < window.innerHeight);
+        section.classList.toggle('is-paused-tab', document.hidden);
+    }
     if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(entries => section.classList.toggle('is-visible', entries[0].isIntersecting), { threshold: 0.05 });
+        const observer = new IntersectionObserver(syncVisibility);
         observer.observe(section);
-    } else section.classList.add('is-visible');
-    document.addEventListener('visibilitychange', () => section.classList.toggle('is-paused-tab', document.hidden));
-    let resizeTimer;
-    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(draw, 150); });
-    reducedMotion.addEventListener('change', draw);
-    // Keep the initial HTML visible while the complete set downloads.
-    // Native lazy loading cannot reliably anticipate a fast CSS animation.
+    } else window.addEventListener('scroll', syncVisibility, { passive: true });
+    function resetPointerPause() { section.classList.remove('is-hovered'); }
+    section.addEventListener('pointerenter', event => {
+        section.classList.toggle('is-hovered', event.pointerType === 'mouse');
+    });
+    section.addEventListener('pointermove', event => {
+        section.classList.toggle('is-hovered', event.pointerType === 'mouse');
+    });
+    section.addEventListener('pointerleave', resetPointerPause);
+    section.addEventListener('pointercancel', resetPointerPause);
+    section.addEventListener('pointerdown', event => {
+        if (event.pointerType !== 'mouse') resetPointerPause();
+    });
+    document.addEventListener('visibilitychange', () => { resetPointerPause(); syncVisibility(); });
+    function checkSize() {
+        // Mobile browser bars resize the height while scrolling; keep the animation intact.
+        if (viewport.clientWidth !== viewportWidth) {
+            viewportWidth = viewport.clientWidth;
+            scheduleDraw();
+        }
+        syncVisibility();
+    }
+    window.addEventListener('resize', checkSize);
+    window.addEventListener('pageshow', () => { resetPointerPause(); checkSize(); });
+    reducedMotion.addEventListener('change', scheduleDraw);
+    syncVisibility();
+    // Native lazy loading cannot anticipate a moving track. Decode progressively instead.
     listImages().then(async files => {
         const sources = files === null ? initialSources : files;
         if (!sources.length) { section.hidden = true; return; }
         images = await loadImages(sources);
-        await draw();
+        loadingFinished = true;
+        clearTimeout(drawTimer);
+        draw();
     });
 })();

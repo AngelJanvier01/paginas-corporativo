@@ -68,9 +68,23 @@ Este documento es operativo y no se incluye en la imagen pública del sitio.
 
 ## Cobertura por estados y contacto, 19 de noviembre de 2026
 
-- Imagen activa: `valma-sitio:contacto-20261119`.
+- Imagen de esa entrega: `valma-sitio:contacto-20261119`, sustituida por la corrección de carrusel descrita abajo.
 - Fuentes: `/home/janvier/apps/valma-contacto-20261119/`.
 - Respaldo detenido: `valma-sitio-before-contacto-20261119`, con reinicio desactivado. Conserva la versión anterior de imágenes.
 - Se mantienen el puerto `127.0.0.1:3012`, la configuración privada SMTP y el túnel existente.
 - El sitio ahora sirve `contacto-flotante.js` y `assets/contacto/whatsapp-valma.png`. Los cinco HTML utilizan una nueva versión de CSS para evitar estilos anteriores en caché.
 - Verificación: cinco pruebas del servidor aprobadas con correo simulado; QR decodificado a tamaño original y 225 px; 15 capitales dentro de su estado; recursos nuevos verificados en el dominio público. Revisión visual local en escritorio y emulación móvil de 400 px y 320 px.
+
+## Logotipo y continuidad del carrusel, 20 de noviembre de 2026
+
+- Imagen activa: `valma-sitio:carrusel-20261120`. Se construyó sobre la imagen anterior, sustituyendo únicamente los cinco HTML, `valma.css` y `productos-carrusel.js`; no incluye cambios de BiotecZac.
+- Fuentes del parche: `/home/janvier/apps/valma-carrusel-20261120/`. Los siete archivos se compararon por SHA-256 con el contenido local antes de activar la versión.
+- Respaldo detenido: `valma-sitio-before-carrusel-20261120`, reinicio desactivado, imagen `valma-sitio:contacto-20261119`.
+- Se validó primero un contenedor temporal en `127.0.0.1:3013`; quedó detenido después de activar la versión pública. Producción mantiene `127.0.0.1:3012`, reinicio `unless-stopped`, filesystem de solo lectura, `/tmp` temporal y las mismas restricciones y configuración privada SMTP. No se cambiaron túneles, DNS ni otros servicios.
+- Se duplicaron las dimensiones del logotipo en los encabezados: portada 232 px en escritorio y 208 px hasta 900 px. Los márgenes, el menú y las anclas se ajustan a ese tamaño. Las páginas secundarias duplican su tamaño anterior.
+- Causa reproducida: `:focus-within` mantenía la animación pausada después de un clic o toque en el visor con `tabindex`. Ahora solo el foco de teclado pausa; la pausa de mouse usa eventos de puntero y se libera al salir. El toque no deja una pausa persistente.
+- Los cambios de altura ya no reconstruyen el carrusel. Los cambios de ancho conservan el avance; `pageshow` y `visibilitychange` resincronizan la visibilidad. La carga progresiva evita que una imagen lenta o una decodificación bloqueada impidan el arranque.
+- Recursos versionados: `valma.css?v=20261120-carrusel` y `productos-carrusel.js?v=20261120`. Se comprobaron ambas variantes del dominio y `/health`; CSS y JS públicos coinciden exactamente con los locales. Cloudflare transforma los correos de algunos HTML con su protección habitual; conservan las referencias nuevas.
+- Pruebas: cinco pruebas del servidor aprobadas con correo simulado; sin envío real. Playwright/Chromium en 320, 360, 390, 768, 1280 y 1920 px para los cinco encabezados, sin desbordamientos ni controles superpuestos. Reproducción y corrección verificadas para clic/salida, hover, toque, cambios de tamaño, teclado, pestaña oculta, restauración de página y movimiento reducido. Se simularon imagen lenta, decodificación pendiente, fallo del manifiesto y ausencia de IntersectionObserver.
+- Verificación pública en 1280 y 390 px con emulación táctil: las 44 imágenes del manifiesto actual cargan y el carrusel continúa tras clic/toque y cambio de altura. Sin errores JavaScript de la aplicación. El beacon externo de estadísticas de Cloudflare dio `ERR_ADDRESS_INVALID` en el equipo de pruebas; no es un recurso del carrusel. No se probó un dispositivo iOS físico.
+- Evidencia local de esta revisión, fuera del repositorio: `%TEMP%/valma-carousel-qa/`.
